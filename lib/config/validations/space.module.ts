@@ -1,0 +1,18 @@
+import * as yup from "yup";
+
+declare module "yup" {
+    interface StringSchema {
+        space(count?: number): this;
+    }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+yup.addMethod<yup.StringSchema>(yup.string, "space", function(count?: number) {
+    count = count ?? 1;
+    const regExp = new RegExp(`^((?!\\s{${count}}).)*$`);
+
+    return this.matches(
+        regExp,
+        count === 1 ? "وارد کردن اسپیس مجاز نمی باشد." : "از قراردادن اسپیس پشت هم خودداری کنید.",
+    );
+});
