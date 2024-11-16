@@ -6,7 +6,7 @@ declare module "yup" {
     }
 }
 
-yup.addMethod<yup.StringSchema>(yup.string, "onlyFaCharacters", function() {
+yup.addMethod<yup.StringSchema>(yup.string, "onlyFaCharacters", function () {
     const regExp = new RegExp(/^[\u0600-\u06FF\s./\-−]+$/g);
     return this.matches(regExp, "فقط استفاده از حروف فارسی مجاز می‌باشد.");
 });

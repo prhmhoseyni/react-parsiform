@@ -11,16 +11,7 @@ export interface FormFieldProps<T> extends InputHTMLAttributes<T> {
     variant?: "primary" | "secondary";
 }
 
-export type FormFieldType =
-    | "amount"
-    | "bank_card"
-    | "cellphone"
-    | "number"
-    | "phone"
-    | "select"
-    | "sheba"
-    | "text"
-    | "textarea";
+export type FormFieldType = "amount" | "bank_card" | "cellphone" | "number" | "phone" | "select" | "sheba" | "text" | "textarea";
 
 export interface FormField {
     type: FormFieldType;

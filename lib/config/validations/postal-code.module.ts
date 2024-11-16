@@ -6,7 +6,7 @@ declare module "yup" {
     }
 }
 
-yup.addMethod<yup.StringSchema>(yup.string, "postalCode", function() {
+yup.addMethod<yup.StringSchema>(yup.string, "postalCode", function () {
     const regExp = new RegExp(/^\d{10}$/g);
     return this.matches(regExp, "کدپستی وارد شده معتبر نمی‌باشد.");
 });

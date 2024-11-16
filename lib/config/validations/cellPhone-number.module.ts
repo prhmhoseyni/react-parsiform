@@ -6,7 +6,7 @@ declare module "yup" {
     }
 }
 
-yup.addMethod<yup.StringSchema>(yup.string, "cellPhoneNumber", function() {
+yup.addMethod<yup.StringSchema>(yup.string, "cellPhoneNumber", function () {
     const regExp = new RegExp(/^09\d{9}$/g);
     return this.matches(regExp, "شماره تلفن همراه وارد شده معتبر نمی‌باشد.");
 });

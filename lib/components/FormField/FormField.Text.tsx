@@ -11,25 +11,13 @@ interface Props extends FormFieldProps<HTMLInputElement> {
 }
 
 export default function FormFieldText(props: Props) {
-    const {
-        name,
-        control,
-        label,
-        required,
-        unit,
-        helperText,
-        variant,
-        onlyDigitCharacters,
-        onlyFaCharacters,
-        onlyEnCharacters,
-        ...restProps
-    } = props;
+    const { name, control, label, required, unit, helperText, variant, onlyDigitCharacters, onlyFaCharacters, onlyEnCharacters, ...restProps } = props;
 
     const controller = useController({ name, control });
     const watch = useWatch({ name, control }) as string;
 
     const formatValue = (value: string) => {
-        value = toEnglishDigit(value ?? "")
+        value = toEnglishDigit(value ?? "");
 
         if (onlyDigitCharacters) {
             return value.replace(/[^0-9]+/g, "");
@@ -53,14 +41,7 @@ export default function FormFieldText(props: Props) {
     }, [watch]);
 
     return (
-        <FormFieldWrapper
-            name={name}
-            label={label}
-            required={required}
-            unit={unit}
-            helperText={helperText}
-            errorMessage={controller.fieldState.error?.message}
-        >
+        <FormFieldWrapper name={name} label={label} required={required} unit={unit} helperText={helperText} errorMessage={controller.fieldState.error?.message}>
             <input
                 type="text"
                 id={name}
@@ -70,7 +51,7 @@ export default function FormFieldText(props: Props) {
                 className={["form-control", variant === "secondary" ? "form-control-secondary" : "", controller.fieldState.error ? "form-control--has-error" : ""].filter(Boolean).join(" ")}
                 value={formatValue(value)}
                 onChange={event => {
-                    controller.field.onChange(formatValue(event.target.value ?? ""))
+                    controller.field.onChange(formatValue(event.target.value ?? ""));
                 }}
                 {...restProps}
             />

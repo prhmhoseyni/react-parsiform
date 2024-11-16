@@ -35,11 +35,7 @@ export default function FormFieldWrapper(props: PropsWithChildren<Props>) {
                     </div>
                 )}
 
-                {props.helperText && (
-                    <div className="font-normal text-[0.75rem] leading-[16px] text-[var(--react-parsiform-prose-hint)]">
-                        {props.helperText}
-                    </div>
-                )}
+                {props.helperText && <div className="font-normal text-[0.75rem] leading-[16px] text-[var(--react-parsiform-prose-hint)]">{props.helperText}</div>}
             </div>
         </div>
     );

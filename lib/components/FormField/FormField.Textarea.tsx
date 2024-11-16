@@ -5,16 +5,7 @@ import { type FormFieldProps } from "./types";
 import { toEnglishDigit } from "../../utils";
 
 export default function FormFieldTextarea(props: FormFieldProps<HTMLTextAreaElement>) {
-    const {
-        name,
-        control,
-        label,
-        required,
-        unit,
-        helperText,
-        variant,
-        ...restProps
-    } = props;
+    const { name, control, label, required, unit, helperText, variant, ...restProps } = props;
 
     const controller = useController({ name, control });
     const watch = useWatch({ name, control }) as string;
@@ -30,21 +21,14 @@ export default function FormFieldTextarea(props: FormFieldProps<HTMLTextAreaElem
     }, [watch]);
 
     return (
-        <FormFieldWrapper
-            name={name}
-            label={label}
-            required={required}
-            unit={unit}
-            helperText={helperText}
-            errorMessage={controller.fieldState.error?.message}
-        >
+        <FormFieldWrapper name={name} label={label} required={required} unit={unit} helperText={helperText} errorMessage={controller.fieldState.error?.message}>
             <textarea
                 name={name}
                 id={name}
                 className={["form-control", variant === "secondary" ? "form-control-secondary" : "", controller.fieldState.error ? "form-control--has-error" : ""].filter(Boolean).join(" ")}
                 value={formatValue(value)}
                 onChange={event => {
-                    controller.field.onChange(formatValue(event.target.value ?? ""))
+                    controller.field.onChange(formatValue(event.target.value ?? ""));
                 }}
                 {...restProps}
             ></textarea>

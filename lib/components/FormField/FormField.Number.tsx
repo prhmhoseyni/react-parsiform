@@ -10,24 +10,13 @@ interface Props extends FormFieldProps<HTMLInputElement> {
 }
 
 export default function FormFieldNumber(props: Props) {
-    const {
-        name,
-        control,
-        label,
-        required,
-        unit,
-        helperText,
-        variant,
-        allowFloatCharacters,
-        allowNegativeCharacters,
-        ...restProps
-    } = props;
+    const { name, control, label, required, unit, helperText, variant, allowFloatCharacters, allowNegativeCharacters, ...restProps } = props;
 
     const controller = useController({ name, control });
     const watch = useWatch({ name, control }) as string;
 
     const formatValue = (value: string) => {
-        value = toEnglishDigit(value ?? "")
+        value = toEnglishDigit(value ?? "");
 
         if (allowNegativeCharacters) {
             return value.replace(/[^0-9-]+/g, "");
@@ -46,16 +35,8 @@ export default function FormFieldNumber(props: Props) {
         setValue(formatValue(watch));
     }, [watch]);
 
-
     return (
-        <FormFieldWrapper
-            name={name}
-            label={label}
-            required={required}
-            unit={unit}
-            helperText={helperText}
-            errorMessage={controller.fieldState.error?.message}
-        >
+        <FormFieldWrapper name={name} label={label} required={required} unit={unit} helperText={helperText} errorMessage={controller.fieldState.error?.message}>
             <input
                 type="text"
                 id={name}
@@ -65,7 +46,7 @@ export default function FormFieldNumber(props: Props) {
                 className={["form-control", variant === "secondary" ? "form-control-secondary" : "", controller.fieldState.error ? "form-control--has-error" : ""].filter(Boolean).join(" ")}
                 value={formatValue(value)}
                 onChange={event => {
-                    controller.field.onChange(event.target.value ? Number(formatValue(event.target.value)) : null)
+                    controller.field.onChange(event.target.value ? Number(formatValue(event.target.value)) : null);
                 }}
                 {...restProps}
             />

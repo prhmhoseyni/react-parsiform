@@ -18,50 +18,16 @@ interface Props {
 
 export default function ParsiFormFields(props: Props) {
     return props.fields.map(field => {
-
         if (field.type === "amount") {
-            return (
-                <FormFieldAmount
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-            );
+            return <FormFieldAmount key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         if (field.type === "bank_card") {
-            return (
-                <FormFieldBankCard
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-            );
+            return <FormFieldBankCard key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         if (field.type === "cellphone") {
-            return (
-                <FormFieldCellphone
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-            );
+            return <FormFieldCellphone key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         if (field.type === "number") {
@@ -77,24 +43,12 @@ export default function ParsiFormFields(props: Props) {
                     variant={props.variant}
                     allowFloatCharacters={field.allowFloatCharacters}
                     allowNegativeCharacters={field.allowNegativeCharacters}
-
                 />
             );
         }
 
         if (field.type === "phone") {
-            return (
-                <FormFieldPhone
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-            );
+            return <FormFieldPhone key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         if (field.type === "select") {
@@ -114,34 +68,11 @@ export default function ParsiFormFields(props: Props) {
         }
 
         if (field.type === "sheba") {
-            return (
-                <FormFieldSheba
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-            );
+            return <FormFieldSheba key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         if (field.type === "textarea") {
-            return (
-                <FormFieldTextarea
-                    key={field.name}
-                    name={field.name}
-                    control={props.control}
-                    label={field.label}
-                    required={field.required}
-                    unit={field.unit}
-                    helperText={field.helperText}
-                    variant={props.variant}
-                />
-
-            );
+            return <FormFieldTextarea key={field.name} name={field.name} control={props.control} label={field.label} required={field.required} unit={field.unit} helperText={field.helperText} variant={props.variant} />;
         }
 
         return (

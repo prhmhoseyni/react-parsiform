@@ -6,7 +6,6 @@ declare module "yup" {
     }
 }
 
-
 function checkNationalId(nationalId: string): boolean {
     if (nationalId && nationalId.length === 10) {
         if (
@@ -43,7 +42,7 @@ function checkNationalId(nationalId: string): boolean {
     );
 }
 
-yup.addMethod<yup.StringSchema>(yup.string, "nationalId", function() {
+yup.addMethod<yup.StringSchema>(yup.string, "nationalId", function () {
     return this.test({
         test: value => checkNationalId(value ?? ""),
         message: "کد ملی وارد شده معتبر نمی‌باشد.",

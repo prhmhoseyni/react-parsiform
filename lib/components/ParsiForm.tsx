@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
@@ -23,7 +23,7 @@ export default function ParsiForm<T extends object>(props: Props<T>) {
         ...(props.yupResolver && { resolver: yupResolver(props.yupResolver) }),
     });
 
-    const onSubmit = formMethods.handleSubmit(async (values) => {
+    const onSubmit = formMethods.handleSubmit(async values => {
         try {
             setIsFormSubmitting(true);
 

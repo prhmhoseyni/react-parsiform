@@ -8,16 +8,16 @@
  */
 
 :root {
-    --react-parsiform-bg-primary: #FFFFFF;
-    --react-parsiform-bg-secondary: #F5F5F5;
+    --react-parsiform-bg-primary: #ffffff;
+    --react-parsiform-bg-secondary: #f5f5f5;
 
     --react-parsiform-prose-primary: #272937;
-    --react-parsiform-prose-hint: #B4B4B9;
-    --react-parsiform-prose-disabled: #B4B4B9;
+    --react-parsiform-prose-hint: #b4b4b9;
+    --react-parsiform-prose-disabled: #b4b4b9;
 
-    --react-parsiform-brand: #48A4EA;
+    --react-parsiform-brand: #48a4ea;
 
-    --react-parsiform-error: #F1380E;
+    --react-parsiform-error: #f1380e;
 }
 
 /**
@@ -66,12 +66,12 @@ textarea.form-control {
 
 .form-control {
     background-color: var(--react-parsiform-bg-primary);
-    border: 1.5px solid #EDEDED;
+    border: 1.5px solid #ededed;
 }
 
 .form-control.form-control-secondary {
     background-color: var(--react-parsiform-bg-secondary);
-    border: 1.5px solid #E6E6E6;
+    border: 1.5px solid #e6e6e6;
 }
 
 /**
@@ -95,7 +95,9 @@ textarea.form-control {
 
 .form-control:focus {
     border-color: var(--react-parsiform-brand);
-    box-shadow: 0 0 0 4px rgba(var(--react-parsiform-brand), 0.24), 0 0 0 4px rgb(var(--react-parsiform-bg-secondary));
+    box-shadow:
+        0 0 0 4px rgba(var(--react-parsiform-brand), 0.24),
+        0 0 0 4px rgb(var(--react-parsiform-bg-secondary));
 }
 
 .form-control:disabled {
@@ -109,12 +111,14 @@ textarea.form-control {
  */
 
 .form-control--has-error {
-    background-color: color-mix(in srgb, var(--react-parsiform-error), #FFFFFF 90%) !important;
+    background-color: color-mix(in srgb, var(--react-parsiform-error), #ffffff 90%) !important;
     border-color: rgb(var(--react-parsiform-error)) !important;
 }
 
 .form-control--has-error:focus {
-    box-shadow: 0 0 0 4px rgba(var(--react-parsiform-error), 0.24), 0 0 0 4px rgb(var(--react-parsiform-bg-secondary)) !important;
+    box-shadow:
+        0 0 0 4px rgba(var(--react-parsiform-error), 0.24),
+        0 0 0 4px rgb(var(--react-parsiform-bg-secondary)) !important;
 }
 
 /**
@@ -131,7 +135,7 @@ input[type="checkbox"].form-control {
     min-height: 1.25rem;
     height: 1.25rem;
     background-color: var(--react-parsiform-bg-secondary);
-    border: 1px solid #EEF0F2;
+    border: 1px solid #eef0f2;
     /* TODO: read from theme */
     border-radius: 4px;
     position: relative;
@@ -143,7 +147,6 @@ input[type="checkbox"].form-control {
 input[type="checkbox"].form-control:checked {
     border-color: var(--react-parsiform-brand);
     background-color: var(--react-parsiform-brand);
-
 }
 
 input[type="checkbox"].form-control:disabled {
@@ -216,14 +219,13 @@ input[type="radio"].form-control {
     min-height: 1.25rem;
     height: 1.25rem;
     background-color: var(--react-parsiform-bg-secondary);
-    border: 1px solid #EEF0F2;
+    border: 1px solid #eef0f2;
     /* TODO: read from theme */
     border-radius: 50%;
     position: relative;
     overflow: hidden;
     z-index: 0;
     transition: 240ms transform linear;
-
 }
 
 input[type="radio"].form-control:checked {
@@ -235,7 +237,6 @@ input[type="radio"].form-control:disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
-
 
 input[type="radio"].form-control:disabled {
     opacity: 0.4;
@@ -259,7 +260,6 @@ input[type="radio"].form-control::before {
     transform: translate(-50%, -50%) scale(0);
     transition: 120ms transform linear;
 }
-
 
 /**
  * :::: checked ::::

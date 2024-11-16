@@ -10,36 +10,19 @@ interface Props extends FormFieldProps<HTMLSelectElement> {
 }
 
 export default function FormFieldSheba(props: Props) {
-    const {
-        name,
-        control,
-        label,
-        required,
-        unit,
-        helperText,
-        variant,
-        options,
-        ...restProps
-    } = props;
+    const { name, control, label, required, unit, helperText, variant, options, ...restProps } = props;
 
     const controller = useController({ name, control });
 
     return (
-        <FormFieldWrapper
-            name={name}
-            label={label}
-            required={required}
-            unit={unit}
-            helperText={helperText}
-            errorMessage={controller.fieldState.error?.message}
-        >
+        <FormFieldWrapper name={name} label={label} required={required} unit={unit} helperText={helperText} errorMessage={controller.fieldState.error?.message}>
             <select
                 id={name}
                 name={name}
                 className={["form-control !ps-10", variant === "secondary" ? "form-control-secondary" : "", controller.fieldState.error ? "form-control--has-error" : ""].filter(Boolean).join(" ")}
                 value={controller.field.value as string}
                 onChange={event => {
-                    controller.field.onChange(event.target.value)
+                    controller.field.onChange(event.target.value);
                 }}
                 {...restProps}
             >

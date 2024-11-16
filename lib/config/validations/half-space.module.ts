@@ -6,12 +6,9 @@ declare module "yup" {
     }
 }
 
-yup.addMethod<yup.StringSchema>(yup.string, "halfSpace", function(count?: number) {
+yup.addMethod<yup.StringSchema>(yup.string, "halfSpace", function (count?: number) {
     count = count ?? 1;
     const regExp = new RegExp(`^((?!\\u200C{${count}}).)*$`);
 
-    return this.matches(
-        regExp,
-        count === 1 ? "وارد کردن نیم اسپیس مجاز نمی باشد." : "از قراردادن نیم اسپیس پشت هم خودداری کنید.",
-    );
+    return this.matches(regExp, count === 1 ? "وارد کردن نیم اسپیس مجاز نمی باشد." : "از قراردادن نیم اسپیس پشت هم خودداری کنید.");
 });

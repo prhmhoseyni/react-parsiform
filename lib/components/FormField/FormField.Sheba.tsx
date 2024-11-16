@@ -4,35 +4,24 @@ import { type FormFieldProps } from "./types";
 import FormFieldWrapper from "../FormFieldWrapper";
 import { toEnglishDigit } from "../../utils";
 
-
 export default function FormFieldSheba(props: FormFieldProps<HTMLInputElement>) {
-    const {
-        name,
-        control,
-        label,
-        required,
-        unit,
-        helperText,
-        variant,
-        ...restProps
-    } = props;
+    const { name, control, label, required, unit, helperText, variant, ...restProps } = props;
 
     const controller = useController({ name, control });
     const watch = useWatch({ name, control }) as string;
 
     const formatValue = (value: string) => {
-        value = toEnglishDigit((value ?? ""))
+        value = toEnglishDigit(value ?? "");
 
         return value.length > 30
-            ? value
-                .slice(0, 30)
+            ? value.slice(0, 30)
             : value
-                .replace(/[^0-9]+/g, "")
-                .split("")
-                .reduce((acc, cur, currentIndex) => {
-                    acc += (currentIndex === 2 || currentIndex === 6 || currentIndex === 10 || currentIndex === 14 || currentIndex === 18 || currentIndex === 22 ? " " : "") + cur;
-                    return acc;
-                }, "");
+                  .replace(/[^0-9]+/g, "")
+                  .split("")
+                  .reduce((acc, cur, currentIndex) => {
+                      acc += (currentIndex === 2 || currentIndex === 6 || currentIndex === 10 || currentIndex === 14 || currentIndex === 18 || currentIndex === 22 ? " " : "") + cur;
+                      return acc;
+                  }, "");
     };
 
     const [value, setValue] = useState<string>(formatValue(restProps.defaultValue?.toString() ?? ""));
@@ -41,16 +30,8 @@ export default function FormFieldSheba(props: FormFieldProps<HTMLInputElement>) 
         setValue(formatValue(watch));
     }, [watch]);
 
-
     return (
-        <FormFieldWrapper
-            name={name}
-            label={label}
-            required={required}
-            unit={unit}
-            helperText={helperText}
-            errorMessage={controller.fieldState.error?.message}
-        >
+        <FormFieldWrapper name={name} label={label} required={required} unit={unit} helperText={helperText} errorMessage={controller.fieldState.error?.message}>
             <div className="relative">
                 <input
                     type="text"
@@ -61,7 +42,7 @@ export default function FormFieldSheba(props: FormFieldProps<HTMLInputElement>) 
                     className={["form-control !ps-10", variant === "secondary" ? "form-control-secondary" : "", controller.fieldState.error ? "form-control--has-error" : ""].filter(Boolean).join(" ")}
                     value={formatValue(value)}
                     onChange={event => {
-                        controller.field.onChange(formatValue(event.target.value ?? "").replace(/[^0-9]+/g, ""))
+                        controller.field.onChange(formatValue(event.target.value ?? "").replace(/[^0-9]+/g, ""));
                     }}
                     {...restProps}
                 />

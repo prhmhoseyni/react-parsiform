@@ -2,7 +2,7 @@
     "name": "react-parsiform",
     "description": "React Form Builder for Persian Forms",
     "private": false,
-    "version": "0.0.8",
+    "version": "0.0.9",
     "author": "Parham Hoseyni",
     "license": "MIT",
     "type": "module",
@@ -64,5 +64,12 @@
         "@hookform/resolvers": "^3.9.1",
         "react-hook-form": "^7.53.2",
         "yup": "^1.4.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/prhmhoseyni/react-parsiform.git"
+    },
+    "bugs": {
+        "url": "https://github.com/prhmhoseyni/react-parsiform/issues"
     }
 }
